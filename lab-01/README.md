@@ -1,287 +1,185 @@
-# Lab 7-1: Monolithic Application Analysis
-
-## Overview
-In this lab, you will analyze the existing monolithic coffee suppliers application to understand its architecture, runtime environment, and database connectivity before beginning the microservices migration.
+# Practical Manual  
+## Lab 01-1: Digital Literacy Audit & Workplace Digital Technology Mapping
 
 ---
 
-## Part 1: Initial Application Verification
+## Lab Overview
 
-### Task 1.1: Access and Test the Monolithic Application
-
-#### Step 1: Navigate to EC2 Console
-1. Go to the **AWS Management Console**
-2. Search for **"EC2"** in the services search bar and select it
-3. In the left sidebar, click **"Instances"**
-
-#### Step 2: Locate the Application Server
-- Look for an instance named **"MonolithicAppServer"** in the instances list
-- Check the **"Name"** column if not immediately visible
-
-#### Step 3: Copy Public IP Address
-```text
-1. Select the MonolithicAppServer instance checkbox
-2. In the details panel, locate "Public IPv4 address"
-3. Click the copy icon next to the address
-```
-
-#### Step 4: Test Application Access
-- Open a new browser tab
-- Paste the IP address with `http://` prefix (not https)
-- Example: `http://54.210.134.58` (use your actual IP)
-- Handle security warning by clicking **"Advanced"** → **"Proceed to [IP]"**
-
-#### Step 5: Explore Application Features
-- Click **"List of suppliers"** (URL: `/suppliers`)
-- Click to **add a new supplier** (URL: `/supplier-add`)
-- **Edit an existing supplier** (URL: `/supplier-update/1`)
-- Test form submissions and data persistence
+This **Lab** introduces students to reflective and analytical thinking about **digital literacy** and **digital technologies used in the workplace**.  
+Students will evaluate their own digital skills, map workplace technologies to business processes, and identify improvement opportunities that are relevant to real organisational contexts. This lab is **formative**, skills-focused, and designed to support students who may be entering diverse workplaces, placements, or part-time employment environments.
 
 ---
 
-## Part 2: Server Connection and Process Analysis
+## Learning Outcomes
 
-### Task 2.1: Connect to EC2 Instance
+By the end of this lab, students will be able to:
 
-#### Step 1: Establish Connection
-1. In EC2 Console, select **MonolithicAppServer** instance
-2. Click **"Connect"** button at top
-3. Select **"EC2 Instance Connect"** tab
-4. Click **"Connect"** - new terminal tab will open
-
-### Task 2.2: Analyze Running Processes
-
-#### Step 1: Check Port 80 Activity
-```bash
-sudo lsof -i :80
-```
-
-**Expected Output:**
-```text
-COMMAND  PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-node    1234 ubuntu   21u  IPv4  12345      0t0  TCP *:http (LISTEN)
-```
-
-**Key Observations:**
-- **Command:** `node` - Node.js application
-- **PID:** `1234` - Process ID (yours will differ)
-- **User:** `ubuntu` - Running user account
-- **Port:** `http` (port 80)
-
-#### Step 2: Analyze Node.js Processes
-```bash
-ps -ef | head -1; ps -ef | grep node
-```
-
-**Expected Output:**
-```text
-UID        PID  PPID  C STIME TTY          TIME CMD
-ubuntu    1234     1  0 10:30 ?        00:00:10 node /home/ubuntu/resources/codebase_partner/index.js
-```
-
-**Key Observations:**
-- **UID:** `ubuntu` - Process owner
-- **PID:** `1234` - Matches lsof output
-- **CMD:** Shows application entry point: `index.js`
+- Identify and categorise digital tools used in their workplace (or placement) and explain the **business value** they support.
+- Self-assess their **digital literacy** and define **three measurable learning goals** for the module.
+- Communicate findings clearly using a **digital mapping worksheet** and a **short reflective write-up**.
 
 ---
 
-## Part 3: Application Structure Analysis
+## Prerequisites  
+**Before beginning, ensure you have:**
 
-### Task 3.1: Explore Application Directory
+- Access to the **Virtual Learning Environment (VLE)**  
+- A laptop or lab computer with **spreadsheet and word processing software**
+- Basic familiarity with workplace or organisational digital tools  
+  (current job, placement, part-time work, or a known organisation)
 
-#### Step 1: Navigate to Application
-```bash
-cd ~/resources/codebase_partner
-```
-
-#### Step 2: List Application Files
-```bash
-ls -la
-```
-
-**Expected Structure:**
-```text
-total 120
-drwxrwxr-x 6 ubuntu ubuntu  4096 Mar 15 10:00 .
-drwxr-xr-x 3 ubuntu ubuntu  4096 Mar 15 09:55 ..
--rw-rw-r-- 1 ubuntu ubuntu   287 Mar 15 10:00 app.js
--rw-rw-r-- 1 ubuntu ubuntu  1234 Mar 15 10:00 index.js
--rw-rw-r-- 1 ubuntu ubuntu   567 Mar 15 10:00 package.json
-drwxrwxr-x 2 ubuntu ubuntu  4096 Mar 15 10:00 views
-drwxrwxr-x 2 ubuntu ubuntu  4096 Mar 15 10:00 controllers
-drwxrwxr-x 2 ubuntu ubuntu  4096 Mar 15 10:00 models
-drwxrwxr-x 2 ubuntu ubuntu  4096 Mar 15 10:00 config
-```
-
-### Task 3.2: Critical Analysis Questions
-
-**Answer these based on your observations:**
-
-1. **How is the application running?**
-   - Node.js process directly on EC2 instance
-   - Listening on port 80 (HTTP)
-   - Running under 'ubuntu' user account
-
-2. **How was it installed?**
-   - Likely deployed via scripts/manual installation
-   - Node.js runtime pre-installed
-   - Code located at: `/home/ubuntu/resources/codebase_partner/`
-
-3. **What prerequisites were needed?**
-   - Node.js runtime environment
-   - NPM packages from `package.json`
-   - Database connectivity libraries
-
-4. **Where is data stored?**
-   - Amazon RDS MySQL database (external)
-   - Configuration in `config/` directory
+If you are **not currently employed**, you may:
+- Use a **previous workplace**, OR  
+- Use a **case-based approximation** of an organisation you understand well (clearly label this in your submission).
 
 ---
 
-## Part 4: Database Connectivity Analysis
+# Part 1 (Individual – 25–35 minutes)  
+## Digital Literacy Audit
 
-### Task 4.1: Locate RDS Database
+### Step-by-Step Student Instructions
 
-#### Step 1: Find Database Endpoint
-1. Open new browser tab to **RDS Console**
-2. Search for **"RDS"** and select it
-3. Click **"Databases"** in left sidebar
-4. Click on the database instance
-5. Copy the **Endpoint** from "Connectivity & security" section
+#### Step 1: Open the Audit Form (2 minutes)
+- Log in to the **VLE**
+- Open **“Week 1: Digital Literacy Audit”**
 
-**Endpoint Format:** `database-1.xxxxxxxx.us-east-1.rds.amazonaws.com`
+#### Step 2: Complete the Audit (10–12 minutes)
+Answer honestly. The audit covers:
 
-### Task 4.2: Test Database Connection
+- **Digital Communication**  
+  (email etiquette, Teams/Zoom, collaboration tools)
+- **Data & Spreadsheets**  
+  (sorting, pivot tables, charts, data quality basics)
+- **Digital Security & Privacy**  
+  (passwords, phishing awareness, GDPR basics)
+- **Digital Business Tools**  
+  (CRM/ERP, e-commerce, automation, analytics)
+- **AI & Emerging Technology Awareness**  
+  (ChatGPT use, limitations, risks, ethics)
+- **Confidence Rating**  
+  Scale of 1–5, plus short examples of tasks you can currently perform
 
-#### Step 1: Verify Database Accessibility
-```bash
-nmap -Pn YOUR_RDS_ENDPOINT
-```
+#### Step 3: Auto-Score & Identify Gaps (3–5 minutes)
+At the end of the form, you should see:
+- Areas of strength
+- Areas for improvement
 
-**Replace `YOUR_RDS_ENDPOINT` with actual endpoint**
+If auto-scoring is not enabled, manually note:
+- **Top 2 strengths**
+- **Top 2 development areas**
 
-**Expected Output:**
-```text
-Starting Nmap 7.60 ( https://nmap.org ) at 2024-03-15 11:00 UTC
-Nmap scan report for database-1.xxxxxxxx.us-east-1.rds.amazonaws.com (10.0.1.123)
-Host is up (0.0020s latency).
-Not shown: 999 filtered ports
-PORT     STATE SERVICE
-3306/tcp open  mysql
-```
+#### Step 4: Set 3 SMART Learning Goals (8–10 minutes)
+Write **three SMART goals** (Specific, Measurable, Achievable, Relevant, Time-bound).
 
-**Confirmation:** MySQL database accessible on port 3306
+**Example SMART goal:**
+> “By Week 4, I will create a pivot table and chart from a dataset and explain key insights in 150 words.”
 
-#### Step 2: Connect to MySQL Database
-```bash
-mysql -h YOUR_RDS_ENDPOINT -u admin -p
-```
+**Goal prompts (choose any three):**
+- Spreadsheet data analysis (pivot tables, charts, data cleaning)
+- Cyber hygiene at work (password managers, phishing checks)
+- Digital collaboration (Teams, SharePoint, Google Drive workflows)
+- Process automation (forms + spreadsheets + simple workflows)
+- Responsible use of AI tools (prompting, verification, citation)
 
-**When prompted for password, enter:**
-```text
-lab-password
-```
-
-**Successful Connection Indication:**
-```text
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 12345
-Server version: 8.0.28 Source distribution
-
-mysql>
-```
-
-### Task 4.3: Explore Database Schema
-
-#### Step 1: Show Databases
-```sql
-SHOW DATABASES;
-```
-
-#### Step 2: Use COFFEE Database
-```sql
-USE COFFEE;
-```
-
-#### Step 3: Show Tables
-```sql
-SHOW TABLES;
-```
-
-#### Step 4: View Supplier Data
-```sql
-SELECT * FROM suppliers;
-```
-
-**Expected Data:**
-```text
-+----+-------------------+------------------+----------------+------------------------+
-| id | name              | email            | phone          | description           |
-+----+-------------------+------------------+----------------+------------------------+
-|  1 | Mountain Coffee   | info@mtncoffee.com | 555-0101       | Organic mountain beans|
-|  2 | Valley Roasters   | contact@valleyroast.com | 555-0102 | Premium dark roast   |
-+----+-------------------+------------------+----------------+------------------------+
-```
-
-### Task 4.4: Clean Up
-```sql
-EXIT;
-```
-
-Close EC2 Instance Connect tab and any application browser tabs.
+**Deliverable from Part 1:**  
+- Audit submitted  
+- Three SMART goals drafted
 
 ---
 
-## Part 5: Documentation and Findings
+# Part 2 (Individual – 30–40 minutes)  
+## Workplace Digital Technology Mapping
 
-### Key Architecture Findings
-
-| Component | Observation | Implication |
-|-----------|-------------|-------------|
-| **Application Runtime** | Node.js on EC2, port 80, ubuntu user | Traditional monolithic deployment |
-| **Process Confirmation** | Matching PIDs from lsof/ps commands | Application actively serving requests |
-| **Database Connectivity** | RDS MySQL, COFFEE.suppliers table | External data persistence |
-| **Architecture Pattern** | Monolithic design | Combined web server + application logic |
-
-### Critical Architecture Understanding
-- **Monolithic Design:** All features in single application
-- **Combined Concerns:** Web server and business logic intertwined
-- **External Data:** Database separate from application server
-- **Direct Deployment:** Application runs directly on EC2 instance
+### What You Will Produce
+A completed **Workplace Technology Mapping Worksheet** identifying:
+- Digital tools used at work
+- Business functions they support
+- Benefits, risks, and improvement opportunities
 
 ---
 
-## Troubleshooting Guide
+### Step-by-Step Student Instructions
 
-### Instance Location Issues
-**If you can't find MonolithicAppServer:**
-1. Verify lab is active (clicked "Start Lab")
-2. Check correct AWS region (usually us-east-1)
-3. Confirm instance state is "running"
-4. Use EC2 filter: Type "MonolithicAppServer" in search
+#### Step 1: Download the Mapping Template (2 minutes)
+- From the VLE: **“Workplace Technology Mapping Template”**
 
-### Connection Problems
-- **nmap shows port 3306 closed:** Check RDS instance status
-- **MySQL connection fails:** Verify endpoint and password
-- **No processes on port 80:** Application may not be running
-- **COFFEE database missing:** Application not initialized properly
+#### Step 2: Complete Your Workplace Context (5 minutes)
+At the top of the spreadsheet, fill in:
+- Workplace / Industry  
+- Role / Department  
+- Main business processes supported (choose 2–3):  
+  Sales, Marketing, Finance, HR, Operations, Customer Service, Logistics, Admin, Compliance
 
-### Expected Instance Properties
-- **Name:** `MonolithicAppServer`
-- **Location:** `LabVPC` (default VPC for lab)
-- **Status:** Pre-installed and running
-- **Access:** Automatically created when lab starts
+#### Step 3: List at Least 10 Digital Tools (10–15 minutes)
+Complete the table below.  
+If workplace access is limited, use a **case-based approximation** and label it clearly.
+
+**Template Table (copy into Excel / Calc):**
+
+| Tool / System | Type (App / Platform / Device) | Business Function | Task Supported | Data Used | Users | Benefit (time / cost / quality) | Risk / Issue | Technology Pillar |
+|--------------|-------------------------------|------------------|---------------|-----------|-------|--------------------------------|-------------|-------------------|
+
+#### Simple “Nine Technology Pillars” (use one per tool)
+- Cloud & Platforms  
+- Data & Analytics  
+- AI & Automation  
+- Cybersecurity & Privacy  
+- Connectivity / Networks  
+- Digital Collaboration Tools  
+- Customer Digital Channels (web, social, e-commerce)  
+- Enterprise Systems (ERP / CRM / HR systems)  
+- Emerging Technologies (IoT, blockchain, AR/VR)
 
 ---
 
-## Completion Checklist
-- [ ] Successfully accessed web application via public IP
-- [ ] Connected to EC2 instance via Instance Connect
-- [ ] Identified Node.js process running on port 80
-- [ ] Explored application directory structure
-- [ ] Located and connected to RDS database
-- [ ] Verified database schema and sample data
-- [ ] Documented architectural observations
+#### Step 4: Create 3 Business Process Maps (10 minutes)
+Below the table, create **three simple process flows**.
 
-**This completes the comprehensive analysis of the monolithic application architecture.**
+**Example (Customer Enquiry Process):**
+
+Customer email → Shared inbox → CRM ticket created → Response template → Issue resolved → Weekly report
+
+Choose any **three processes** relevant to your workplace.
+
+#### Step 5: Identify 2 Improvements (5–8 minutes)
+Write:
+- **One quick-win improvement** (low cost / easy)
+- **One strategic improvement** (larger change)
+
+Each improvement must explain:
+- What changes
+- Why it helps (time, quality, customer experience, compliance)
+- Risks or controls needed (security, training, data quality)
+
+**Deliverable from Part 2:**  
+- Completed mapping worksheet
+
+---
+
+# Part 3 (Paired Discussion – 10–15 minutes)  
+## Share & Compare
+
+### Step-by-Step
+1. Pair up with the student next to you.
+2. Each student shares:
+   - One tool that adds the **most value**
+   - One tool or process that causes the **most friction**
+   - One **digital skill** they want to build this term
+3. As a pair, agree on one shared insight:
+
+> “The biggest digital challenge across our workplaces is ______ because ______.”
+
+**Optional (2 minutes):**  
+Post your shared insight to the class Padlet or shared document.
+
+---
+
+## What You Submit (End of Class)
+
+1. **Workplace Technology Mapping file** (Excel / Calc)
+2. **Short Reflection (150–250 words)** (Word / Writer)
+
+### Reflection Prompts (answer all):
+- What did you learn about how digital tools support workplace processes?
+- What is your biggest digital skills gap right now?
+- Which of your three goals matters most for your workplace performance, and why?
