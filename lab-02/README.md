@@ -1,13 +1,6 @@
 # Practical Manual  
 ## Lab 02: Hardware & Software Fundamentals — Device Spec Analysis for a Business Case
 
-**Module:** Digital Business and New Technologies  
-*(Graduate Apprenticeship – Business Administration)*  
-**Theme:** Digital Foundations  
-**Week:** 2  
-**Duration:** 60–90 minutes  
-**Mode:** Desktop computer + Internet + Spreadsheet worksheet (mostly open/free tools)
-
 ---
 
 ## 1. Lab Overview
