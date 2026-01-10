@@ -1,13 +1,4 @@
 # Practical Manual  
-## Lab 08: Cloud Storage Setup, Comparison & Business Cloud Adoption
-
-**Module:** Digital Business and New Technologies  
-**Thematic Group:** Cloud & Networking  
-**Week:** 8  
-**Duration:** 60–90 minutes  
-**Mode:** Desktop/Laptop + Internet (browser-based tools)
-
----
 
 ## 1. Lab Overview
 
