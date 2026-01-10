@@ -1,14 +1,6 @@
 # Practical Manual  
 ## Lab 10: Version Control & Digital Collaboration for Shared Business Assets
 
-**Module:** Digital Business and New Technologies  
-**Thematic Group:** Data & Repositories / Collaboration  
-**Week:** 10  
-**Duration:** 60–90 minutes  
-**Mode:** Desktop/Laptop + Internet (no coding required)
-
----
-
 ## 1. Lab Overview
 
 In modern organisations, people rarely work alone. Teams collaborate on **shared digital assets** such as documents, spreadsheets, reports, and presentations. Without proper version control, this can quickly lead to confusion, lost work, and mistakes.
