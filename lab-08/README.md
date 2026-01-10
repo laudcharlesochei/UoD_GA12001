@@ -1,287 +1,242 @@
-# Lab 7-1: Monolithic Application Analysis
+# Practical Manual  
+## Lab 08: Cloud Storage Setup, Comparison & Business Cloud Adoption
 
-## Overview
-In this lab, you will analyze the existing monolithic coffee suppliers application to understand its architecture, runtime environment, and database connectivity before beginning the microservices migration.
-
----
-
-## Part 1: Initial Application Verification
-
-### Task 1.1: Access and Test the Monolithic Application
-
-#### Step 1: Navigate to EC2 Console
-1. Go to the **AWS Management Console**
-2. Search for **"EC2"** in the services search bar and select it
-3. In the left sidebar, click **"Instances"**
-
-#### Step 2: Locate the Application Server
-- Look for an instance named **"MonolithicAppServer"** in the instances list
-- Check the **"Name"** column if not immediately visible
-
-#### Step 3: Copy Public IP Address
-```text
-1. Select the MonolithicAppServer instance checkbox
-2. In the details panel, locate "Public IPv4 address"
-3. Click the copy icon next to the address
-```
-
-#### Step 4: Test Application Access
-- Open a new browser tab
-- Paste the IP address with `http://` prefix (not https)
-- Example: `http://54.210.134.58` (use your actual IP)
-- Handle security warning by clicking **"Advanced"** → **"Proceed to [IP]"**
-
-#### Step 5: Explore Application Features
-- Click **"List of suppliers"** (URL: `/suppliers`)
-- Click to **add a new supplier** (URL: `/supplier-add`)
-- **Edit an existing supplier** (URL: `/supplier-update/1`)
-- Test form submissions and data persistence
+**Module:** Digital Business and New Technologies  
+**Thematic Group:** Cloud & Networking  
+**Week:** 8  
+**Duration:** 60–90 minutes  
+**Mode:** Desktop/Laptop + Internet (browser-based tools)
 
 ---
 
-## Part 2: Server Connection and Process Analysis
+## 1. Lab Overview
 
-### Task 2.1: Connect to EC2 Instance
+Cloud computing is a core part of modern digital business. It enables organisations to store data securely, collaborate remotely, and scale their operations without relying on physical infrastructure.
 
-#### Step 1: Establish Connection
-1. In EC2 Console, select **MonolithicAppServer** instance
-2. Click **"Connect"** button at top
-3. Select **"EC2 Instance Connect"** tab
-4. Click **"Connect"** - new terminal tab will open
+In this lab, you will **use cloud storage services hands-on**, compare popular platforms from a **business perspective**, and reflect on how cloud adoption can improve real workplace processes.
 
-### Task 2.2: Analyze Running Processes
+This lab is **non-technical** and focuses on **practical business use**, decision-making, and digital awareness rather than configuration or coding.
 
-#### Step 1: Check Port 80 Activity
-```bash
-sudo lsof -i :80
-```
-
-**Expected Output:**
-```text
-COMMAND  PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-node    1234 ubuntu   21u  IPv4  12345      0t0  TCP *:http (LISTEN)
-```
-
-**Key Observations:**
-- **Command:** `node` - Node.js application
-- **PID:** `1234` - Process ID (yours will differ)
-- **User:** `ubuntu` - Running user account
-- **Port:** `http` (port 80)
-
-#### Step 2: Analyze Node.js Processes
-```bash
-ps -ef | head -1; ps -ef | grep node
-```
-
-**Expected Output:**
-```text
-UID        PID  PPID  C STIME TTY          TIME CMD
-ubuntu    1234     1  0 10:30 ?        00:00:10 node /home/ubuntu/resources/codebase_partner/index.js
-```
-
-**Key Observations:**
-- **UID:** `ubuntu` - Process owner
-- **PID:** `1234` - Matches lsof output
-- **CMD:** Shows application entry point: `index.js`
+By the end of the session, you should feel confident explaining *why* businesses use cloud storage and *how* it supports remote work and collaboration.
 
 ---
 
-## Part 3: Application Structure Analysis
+## 2. Learning Outcomes
 
-### Task 3.1: Explore Application Directory
+By completing this lab, you will be able to:
 
-#### Step 1: Navigate to Application
-```bash
-cd ~/resources/codebase_partner
-```
-
-#### Step 2: List Application Files
-```bash
-ls -la
-```
-
-**Expected Structure:**
-```text
-total 120
-drwxrwxr-x 6 ubuntu ubuntu  4096 Mar 15 10:00 .
-drwxr-xr-x 3 ubuntu ubuntu  4096 Mar 15 09:55 ..
--rw-rw-r-- 1 ubuntu ubuntu   287 Mar 15 10:00 app.js
--rw-rw-r-- 1 ubuntu ubuntu  1234 Mar 15 10:00 index.js
--rw-rw-r-- 1 ubuntu ubuntu   567 Mar 15 10:00 package.json
-drwxrwxr-x 2 ubuntu ubuntu  4096 Mar 15 10:00 views
-drwxrwxr-x 2 ubuntu ubuntu  4096 Mar 15 10:00 controllers
-drwxrwxr-x 2 ubuntu ubuntu  4096 Mar 15 10:00 models
-drwxrwxr-x 2 ubuntu ubuntu  4096 Mar 15 10:00 config
-```
-
-### Task 3.2: Critical Analysis Questions
-
-**Answer these based on your observations:**
-
-1. **How is the application running?**
-   - Node.js process directly on EC2 instance
-   - Listening on port 80 (HTTP)
-   - Running under 'ubuntu' user account
-
-2. **How was it installed?**
-   - Likely deployed via scripts/manual installation
-   - Node.js runtime pre-installed
-   - Code located at: `/home/ubuntu/resources/codebase_partner/`
-
-3. **What prerequisites were needed?**
-   - Node.js runtime environment
-   - NPM packages from `package.json`
-   - Database connectivity libraries
-
-4. **Where is data stored?**
-   - Amazon RDS MySQL database (external)
-   - Configuration in `config/` directory
+- Explain cloud computing using **business-friendly language**
+- Use cloud storage to **upload, organise, and share files**
+- Compare cloud services based on **cost, usability, security, and collaboration**
+- Identify **benefits and risks** of cloud adoption
+- Suggest **simple cloud migration ideas** for a business or organisation
 
 ---
 
-## Part 4: Database Connectivity Analysis
+## 3. Prerequisites
 
-### Task 4.1: Locate RDS Database
+### Before beginning, ensure you have:
 
-#### Step 1: Find Database Endpoint
-1. Open new browser tab to **RDS Console**
-2. Search for **"RDS"** and select it
-3. Click **"Databases"** in left sidebar
-4. Click on the database instance
-5. Copy the **Endpoint** from "Connectivity & security" section
+#### Hardware & Access
+- A **desktop or laptop computer**
+- A **reliable internet connection**
+- A modern web browser  
+  (Chrome, Edge, or Firefox)
 
-**Endpoint Format:** `database-1.xxxxxxxx.us-east-1.rds.amazonaws.com`
+#### Accounts (Free)
+- A **Google account** (for Google Drive)  
+- A **Microsoft account** (for OneDrive)
 
-### Task 4.2: Test Database Connection
-
-#### Step 1: Verify Database Accessibility
-```bash
-nmap -Pn YOUR_RDS_ENDPOINT
-```
-
-**Replace `YOUR_RDS_ENDPOINT` with actual endpoint**
-
-**Expected Output:**
-```text
-Starting Nmap 7.60 ( https://nmap.org ) at 2024-03-15 11:00 UTC
-Nmap scan report for database-1.xxxxxxxx.us-east-1.rds.amazonaws.com (10.0.1.123)
-Host is up (0.0020s latency).
-Not shown: 999 filtered ports
-PORT     STATE SERVICE
-3306/tcp open  mysql
-```
-
-**Confirmation:** MySQL database accessible on port 3306
-
-#### Step 2: Connect to MySQL Database
-```bash
-mysql -h YOUR_RDS_ENDPOINT -u admin -p
-```
-
-**When prompted for password, enter:**
-```text
-lab-password
-```
-
-**Successful Connection Indication:**
-```text
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 12345
-Server version: 8.0.28 Source distribution
-
-mysql>
-```
-
-### Task 4.3: Explore Database Schema
-
-#### Step 1: Show Databases
-```sql
-SHOW DATABASES;
-```
-
-#### Step 2: Use COFFEE Database
-```sql
-USE COFFEE;
-```
-
-#### Step 3: Show Tables
-```sql
-SHOW TABLES;
-```
-
-#### Step 4: View Supplier Data
-```sql
-SELECT * FROM suppliers;
-```
-
-**Expected Data:**
-```text
-+----+-------------------+------------------+----------------+------------------------+
-| id | name              | email            | phone          | description           |
-+----+-------------------+------------------+----------------+------------------------+
-|  1 | Mountain Coffee   | info@mtncoffee.com | 555-0101       | Organic mountain beans|
-|  2 | Valley Roasters   | contact@valleyroast.com | 555-0102 | Premium dark roast   |
-+----+-------------------+------------------+----------------+------------------------+
-```
-
-### Task 4.4: Clean Up
-```sql
-EXIT;
-```
-
-Close EC2 Instance Connect tab and any application browser tabs.
+> If you only have **one account**, you can still complete most of the lab.  
+> Comparisons can be based on discussion or research where needed.
 
 ---
 
-## Part 5: Documentation and Findings
+### Pre-Class Work (from the module plan)
 
-### Key Architecture Findings
-
-| Component | Observation | Implication |
-|-----------|-------------|-------------|
-| **Application Runtime** | Node.js on EC2, port 80, ubuntu user | Traditional monolithic deployment |
-| **Process Confirmation** | Matching PIDs from lsof/ps commands | Application actively serving requests |
-| **Database Connectivity** | RDS MySQL, COFFEE.suppliers table | External data persistence |
-| **Architecture Pattern** | Monolithic design | Combined web server + application logic |
-
-### Critical Architecture Understanding
-- **Monolithic Design:** All features in single application
-- **Combined Concerns:** Web server and business logic intertwined
-- **External Data:** Database separate from application server
-- **Direct Deployment:** Application runs directly on EC2 instance
+Before this lab, you should have:
+- Researched **one cloud provider** (e.g. Google, Microsoft, or Amazon)
+- Made brief notes on:
+  - Main services offered
+  - Typical business use cases
 
 ---
 
-## Troubleshooting Guide
+## 4. Lab Deliverables (What You Will Produce)
 
-### Instance Location Issues
-**If you can't find MonolithicAppServer:**
-1. Verify lab is active (clicked "Start Lab")
-2. Check correct AWS region (usually us-east-1)
-3. Confirm instance state is "running"
-4. Use EC2 filter: Type "MonolithicAppServer" in search
+By the end of this lab, you will have:
 
-### Connection Problems
-- **nmap shows port 3306 closed:** Check RDS instance status
-- **MySQL connection fails:** Verify endpoint and password
-- **No processes on port 80:** Application may not be running
-- **COFFEE database missing:** Application not initialized properly
-
-### Expected Instance Properties
-- **Name:** `MonolithicAppServer`
-- **Location:** `LabVPC` (default VPC for lab)
-- **Status:** Pre-installed and running
-- **Access:** Automatically created when lab starts
+- A **cloud folder structure** (Google Drive or OneDrive)
+- A **cloud comparison worksheet**
+- A **short cloud adoption reflection**
+- *(Optional)* A simple **cloud migration checklist**
 
 ---
 
-## Completion Checklist
-- [ ] Successfully accessed web application via public IP
-- [ ] Connected to EC2 instance via Instance Connect
-- [ ] Identified Node.js process running on port 80
-- [ ] Explored application directory structure
-- [ ] Located and connected to RDS database
-- [ ] Verified database schema and sample data
-- [ ] Documented architectural observations
+## 5. Step-by-Step Lab Procedure
 
-**This completes the comprehensive analysis of the monolithic application architecture.**
+### Part A: Cloud Computing Basics (10 minutes)
+
+#### Step 1: Review Cloud Concepts
+You will be guided through a short overview of:
+
+- What cloud computing is
+- The difference between:
+  - **Local storage** (USB, hard drive)
+  - **Cloud storage**
+- High-level cloud service models:
+  - **SaaS** (e.g. Google Drive, OneDrive)
+  - **PaaS**
+  - **IaaS**
+
+**Your task:**  
+Write down **one business benefit** of cloud computing  
+(e.g. remote access, collaboration, scalability).
+
+---
+
+### Part B: Cloud Storage Setup (25–30 minutes)
+
+#### Step 2: Access Cloud Storage
+Log in to:
+- **Google Drive**, and/or  
+- **Microsoft OneDrive**
+
+#### Step 3: Create a Business Folder Structure
+Create a main folder named:
+
+Week8_Cloud_Business_Demo_<YourName>
+
+yaml
+Copy code
+
+Inside it, create the following sub-folders:
+
+- Documents  
+- Reports  
+- Finance  
+- HR  
+- Shared_with_Team  
+
+This simulates a **real business cloud repository**.
+
+#### Step 4: Upload Sample Files
+Upload:
+- One document (Word, PDF, or text file)
+- One spreadsheet
+- One image or presentation
+
+As you upload, observe:
+- Upload speed
+- File previews
+- Storage indicators
+
+#### Step 5: Share a Folder Securely
+- Share the **Shared_with_Team** folder
+- Set permissions to:
+  - **Viewer**
+  - **Editor**
+- Copy the share link (do **not** post publicly)
+
+**Answer these questions:**
+- What is the difference between *view* and *edit* access?
+- Why does access control matter in a business?
+
+---
+
+### Part C: Cloud Comparison Task (15–20 minutes)
+
+#### Step 6: Complete a Comparison Table
+Create a simple table in a spreadsheet or document:
+
+| Feature | Google Drive | OneDrive |
+|------|-------------|----------|
+| Free storage limit | | |
+| Ease of use | | |
+| Collaboration features | | |
+| Security controls | | |
+| Integration with other tools | | |
+| Best business use case | | |
+
+Base your answers on:
+- Your experience in this lab
+- Provider documentation or help pages
+
+---
+
+### Part D: Cloud & Networking Concepts (10 minutes)
+
+#### Step 7: Remote Access & Security
+You will review:
+- Basic internet connectivity and networking concepts
+- Common cloud risks:
+  - Weak passwords
+  - Public Wi-Fi
+  - Over-sharing files
+- Simple protections:
+  - Strong passwords
+  - Multi-factor authentication (MFA)
+  - Correct access permissions
+
+**Your task:**  
+List **two cloud security best practices**.
+
+---
+
+### Part E: Cloud Provider Demo (Conceptual) (10 minutes)
+
+#### Step 8: Cloud Platform Overview (Demo Only)
+You will see a short demonstration of:
+- **Amazon Web Services (AWS) Free Tier**, or  
+- **Google Cloud Console**
+
+Focus on understanding:
+- What businesses can host in the cloud
+- The difference between:
+  - Cloud storage
+  - Full cloud infrastructure
+
+**Your task:**  
+Note:
+- One cloud use case suitable for **small/medium businesses**
+- One use case suitable for **large enterprises**
+
+---
+
+### Part F: Reflection & Application (10–15 minutes)
+
+#### Step 9: Cloud Adoption Reflection (150–200 words)
+Write a short reflection answering:
+
+- How is cloud storage currently used in your organisation (or a known organisation)?
+- One **benefit** of moving more data to the cloud
+- One **risk or concern**
+- One **improvement** you would recommend
+
+#### Step 10: Optional – Cloud Migration Checklist (Post-Class)
+Create a simple checklist covering:
+- What data should move first
+- Who needs access
+- Security requirements
+- Training needs
+
+---
+
+## 6. Submission (End of Class)
+
+Submit the following:
+
+- A **screenshot** of your cloud folder structure
+- Your **completed comparison table**
+- Your **reflection paragraph**
+
+---
+
+## 7. Pre / Post-Class Alignment
+
+### Pre-Class
+- Research cloud providers and services
+
+### Post-Class
+- Create a cloud migration checklist
+- Reflect on your organisation’s readiness for cloud adoption
