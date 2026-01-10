@@ -1,188 +1,297 @@
-
 # Practical Manual  
-## Lab 01-1: Digital Literacy Audit & Workplace Digital Technology Mapping
+## Lab 02: Hardware & Software Fundamentals — Device Spec Analysis for a Business Case
+
+**Module:** Digital Business and New Technologies  
+*(Graduate Apprenticeship – Business Administration)*  
+**Theme:** Digital Foundations  
+**Week:** 2  
+**Duration:** 60–90 minutes  
+**Mode:** Desktop computer + Internet + Spreadsheet worksheet (mostly open/free tools)
 
 ---
 
-## Lab Overview
+## 1. Lab Overview
 
-This **Lab** introduces students to reflective and analytical thinking about **digital literacy** and **digital technologies used in the workplace**.  
-Students will evaluate their own digital skills, map workplace technologies to business processes, and identify improvement opportunities that are relevant to real organisational contexts. This lab is **formative**, skills-focused, and designed to support students who may be entering diverse workplaces, placements, or part-time employment environments.
+Businesses rely on digital devices—laptops, desktops, tablets, and phones—to get work done. Choosing the *right* device is not about buying the most powerful or expensive option, but about **matching business needs to technical specifications**.
 
----
+In this lab, you will:
 
-## Learning Outcomes
+- Compare device specifications (laptop, desktop, or phone)
+- Analyse how technical features support real **business tasks**
+- Evaluate options using **cost, performance, security, compatibility, and sustainability**
+- Make an **evidence-based recommendation** for a realistic business scenario
 
-By the end of this lab, students will be able to:
-
-- Identify and categorise digital tools used in their workplace (or placement) and explain the **business value** they support.
-- Self-assess their **digital literacy** and define **three measurable learning goals** for the module.
-- Communicate findings clearly using a **digital mapping worksheet** and a **short reflective write-up**.
+You will use vendor websites and a structured spreadsheet to justify your decision in a business-friendly way.
 
 ---
 
-## Prerequisites  
-**Before beginning, ensure you have:**
+### Core Skills You Will Practise
 
-- Access to the **Virtual Learning Environment (VLE)**  
-- A laptop or lab computer with **spreadsheet and word processing software**
-- Basic familiarity with workplace or organisational digital tools  
-  (current job, placement, part-time work, or a known organisation)
-
-If you are **not currently employed**, you may:
-- Use a **previous workplace**, OR  
-- Use a **case-based approximation** of an organisation you understand well (clearly label this in your submission).
+- Reading and interpreting device specifications  
+  (CPU, RAM, storage, battery, display, connectivity, OS)
+- Translating **business requirements** into **technology requirements**
+- Creating a structured comparison and recommendation using a spreadsheet
+- Making trade-offs and justifying decisions clearly
 
 ---
 
-# Part 1 (Individual – 25–35 minutes)  
-## Digital Literacy Audit
+## 2. Prerequisites
 
-### Step-by-Step Student Instructions
+### Before beginning, ensure you have:
 
-#### Step 1: Open the Audit Form (2 minutes)
-- Log in to the **VLE**
-- Open **“Week 1: Digital Literacy Audit”**
+#### Hardware & Access
+- A **desktop computer** with internet access
+- A modern web browser  
+  (Chrome, Edge, or Firefox)
 
-#### Step 2: Complete the Audit (10–12 minutes)
-Answer honestly. The audit covers:
+#### Spreadsheet Software (choose one)
+- **LibreOffice Calc** (recommended, open-source)
+- **Google Sheets**
+- **Microsoft Excel** (if this is your institution’s standard)
 
-- **Digital Communication**  
-  (email etiquette, Teams/Zoom, collaboration tools)
-- **Data & Spreadsheets**  
-  (sorting, pivot tables, charts, data quality basics)
-- **Digital Security & Privacy**  
-  (passwords, phishing awareness, GDPR basics)
-- **Digital Business Tools**  
-  (CRM/ERP, e-commerce, automation, analytics)
-- **AI & Emerging Technology Awareness**  
-  (ChatGPT use, limitations, risks, ethics)
-- **Confidence Rating**  
-  Scale of 1–5, plus short examples of tasks you can currently perform
-
-#### Step 3: Auto-Score & Identify Gaps (3–5 minutes)
-At the end of the form, you should see:
-- Areas of strength
-- Areas for improvement
-
-If auto-scoring is not enabled, manually note:
-- **Top 2 strengths**
-- **Top 2 development areas**
-
-#### Step 4: Set 3 SMART Learning Goals (8–10 minutes)
-Write **three SMART goals** (Specific, Measurable, Achievable, Relevant, Time-bound).
-
-**Example SMART goal:**
-> “By Week 4, I will create a pivot table and chart from a dataset and explain key insights in 150 words.”
-
-**Goal prompts (choose any three):**
-- Spreadsheet data analysis (pivot tables, charts, data cleaning)
-- Cyber hygiene at work (password managers, phishing checks)
-- Digital collaboration (Teams, SharePoint, Google Drive workflows)
-- Process automation (forms + spreadsheets + simple workflows)
-- Responsible use of AI tools (prompting, verification, citation)
-
-**Deliverable from Part 1:**  
-- Audit submitted  
-- Three SMART goals drafted
+#### Accounts (Optional)
+- A **Google account** (only if using Google Sheets)
 
 ---
 
-# Part 2 (Individual – 30–40 minutes)  
-## Workplace Digital Technology Mapping
+### Pre-Class Work (from your plan)
 
-### What You Will Produce
-A completed **Workplace Technology Mapping Worksheet** identifying:
-- Digital tools used at work
-- Business functions they support
-- Benefits, risks, and improvement opportunities
-
----
-
-### Step-by-Step Student Instructions
-
-#### Step 1: Download the Mapping Template (2 minutes)
-- From the VLE: **“Workplace Technology Mapping Template”**
-
-#### Step 2: Complete Your Workplace Context (5 minutes)
-At the top of the spreadsheet, fill in:
-- Workplace / Industry  
-- Role / Department  
-- Main business processes supported (choose 2–3):  
-  Sales, Marketing, Finance, HR, Operations, Customer Service, Logistics, Admin, Compliance
-
-#### Step 3: List at Least 10 Digital Tools (10–15 minutes)
-Complete the table below.  
-If workplace access is limited, use a **case-based approximation** and label it clearly.
-
-**Template Table (copy into Excel / Calc):**
-
-| Tool / System | Type (App / Platform / Device) | Business Function | Task Supported | Data Used | Users | Benefit (time / cost / quality) | Risk / Issue | Technology Pillar |
-|--------------|-------------------------------|------------------|---------------|-----------|-------|--------------------------------|-------------|-------------------|
-
-#### Simple “Nine Technology Pillars” (use one per tool)
-- Cloud & Platforms  
-- Data & Analytics  
-- AI & Automation  
-- Cybersecurity & Privacy  
-- Connectivity / Networks  
-- Digital Collaboration Tools  
-- Customer Digital Channels (web, social, e-commerce)  
-- Enterprise Systems (ERP / CRM / HR systems)  
-- Emerging Technologies (IoT, blockchain, AR/VR)
+Before this lab, you should have listed **at least three devices** used in your workplace (or a workplace you know), for example:
+- Laptop model
+- Phone model
+- Desktop computer
+- Tablet or printer
 
 ---
 
-#### Step 4: Create 3 Business Process Maps (10 minutes)
-Below the table, create **three simple process flows**.
+## 3. Tools & Websites (Mostly Free)
 
-**Example (Customer Enquiry Process):**
+### Spreadsheet Tool
+- **LibreOffice Calc** (offline, open-source)
 
-Customer email → Shared inbox → CRM ticket created → Response template → Issue resolved → Weekly report
+### Device Research Sources (Free)
+You may use **any reputable source**, but aim for **at least two sources per device**.
 
-Choose any **three processes** relevant to your workplace.
+#### Manufacturer / Vendor Pages
+- Dell, HP, Lenovo
+- Apple (MacBook, iPhone)
+- Microsoft Surface
+- Samsung, Google (phones)
 
-#### Step 5: Identify 2 Improvements (5–8 minutes)
-Write:
-- **One quick-win improvement** (low cost / easy)
-- **One strategic improvement** (larger change)
-
-Each improvement must explain:
-- What changes
-- Why it helps (time, quality, customer experience, compliance)
-- Risks or controls needed (security, training, data quality)
-
-**Deliverable from Part 2:**  
-- Completed mapping worksheet
+#### Independent Specification & Review Sites
+- **GSMArena** – phone specifications
+- **Notebookcheck** – laptop performance and battery reviews
+- **Intel ARK / AMD product pages** – CPU references
 
 ---
 
-# Part 3 (Paired Discussion – 10–15 minutes)  
-## Share & Compare
-
-### Step-by-Step
-1. Pair up with the student next to you.
-2. Each student shares:
-   - One tool that adds the **most value**
-   - One tool or process that causes the **most friction**
-   - One **digital skill** they want to build this term
-3. As a pair, agree on one shared insight:
-
-> “The biggest digital challenge across our workplaces is ______ because ______.”
-
-**Optional (2 minutes):**  
-Post your shared insight to the class Padlet or shared document.
+## 4. Lab Practical Activity: Device Spec Analysis
 
 ---
 
-## What You Submit (End of Class)
+### Part A — Start the Worksheet (10 minutes)
 
-1. **Workplace Technology Mapping file** (Excel / Calc)
-2. **Short Reflection (150–250 words)** (Word / Writer)
+#### Step 1: Create a new spreadsheet
+Open LibreOffice Calc (or Excel/Sheets) and save the file as:
 
-### Reflection Prompts (answer all):
-- What did you learn about how digital tools support workplace processes?
-- What is your biggest digital skills gap right now?
-- Which of your three goals matters most for your workplace performance, and why?
+Week2_Device_Spec_Analysis_<YourName>.xlsx
+
+yaml
+Copy code
+
+#### Step 2: Create worksheet tabs
+Create **three sheets** named:
+
+1. **Business Case**
+2. **Spec Comparison**
+3. **Recommendation**
 
 ---
+
+### Part B — Define the Business Case (10–15 minutes)
+
+#### Step 3: Choose ONE business scenario
+Select **one** of the following (or one from your workplace):
+
+- **Scenario A:** Office Admin & Finance Support  
+  (email, documents, spreadsheets, accounting systems)
+
+- **Scenario B:** Field Sales / Mobile Worker  
+  (calls, CRM mobile app, navigation, battery priority)
+
+- **Scenario C:** Customer Service & Remote Work  
+  (video calls, ticketing system, comfort, dual monitors)
+
+- **Scenario D:** Manager / Executive  
+  (presentations, travel, security, premium build quality)
+
+---
+
+#### Step 4: Write requirement statements
+Under your chosen scenario, write:
+
+- **Top 5 tasks** the device must support
+- **Top 5 constraints**, such as:
+  - Budget limit
+  - Portability
+  - Battery life
+  - OS compatibility
+  - Security requirements
+  - Durability
+
+---
+
+#### Step 5: Translate tasks into measurable device needs
+Create a small table like this:
+
+| Requirement | Minimum Needed | Why It Matters (Business Reason) |
+|-----------|----------------|----------------------------------|
+| RAM | e.g. 8 GB | Multitasking, Teams + spreadsheets |
+| Storage | e.g. 256 GB SSD | Speed and document storage |
+| Battery | e.g. 8 hours | Travel / field work |
+| Connectivity | e.g. Wi-Fi 6 / 5G | Remote access |
+| OS | e.g. Windows 11 | App compatibility |
+
+---
+
+### Part C — Select Devices to Compare (10 minutes)
+
+#### Step 6: Choose devices
+Compare **at least two devices**, for example:
+
+- Laptop vs laptop  
+- Phone vs phone  
+- Laptop + phone (ideal for field sales)
+
+**Rule:**  
+At least **one device** must be relevant to your workplace  
+(current device or a realistic upgrade).
+
+---
+
+#### Step 7: Research devices online
+Using vendor and review sites, find:
+
+- Model name
+- Price (or approximate price range)
+- Key technical specifications
+
+---
+
+### Part D — Fill the Spec Comparison Table (20–25 minutes)
+
+#### Step 8: Create the comparison table
+In **Sheet 2: Spec Comparison**, copy this structure:
+
+| Spec Category | Device 1 (Model & Link) | Device 2 (Model & Link) | Notes (Business Relevance) |
+|--------------|--------------------------|--------------------------|-----------------------------|
+| Price | | | |
+| CPU / Chip | | | |
+| RAM | | | |
+| Storage type & size | | | |
+| Display size & resolution | | | |
+| Battery life / capacity | | | |
+| Weight / portability | | | |
+| OS / Version | | | |
+| Connectivity | | | |
+| Webcam / mic / speakers | | | |
+| Security features | | | |
+| Warranty / support | | | |
+| Sustainability (repairability / energy) | | | |
+
+---
+
+#### Step 9: Add a simple scoring model
+Below the table, create this scoring section:
+
+| Criteria | Weight (1–5) | Device 1 Score (1–5) | Weighted | Device 2 Score (1–5) | Weighted |
+|--------|---------------|----------------------|----------|----------------------|----------|
+| Performance | | | | | |
+| Portability | | | | | |
+| Battery | | | | | |
+| Compatibility (OS/apps) | | | | | |
+| Security | | | | | |
+| Cost / value | | | | | |
+| Support / warranty | | | | | |
+
+**Weighted score formula:**
+Weighted = Weight × Score
+
+yaml
+Copy code
+
+Calculate:
+- **Total Device 1 score**
+- **Total Device 2 score**
+
+This models **business-style decision making**, not technical perfection.
+
+---
+
+### Part E — Make a Group Recommendation (15–20 minutes)
+
+#### Step 10: Form groups of 3–4
+Each student gives a **1-minute summary** of their comparison.
+
+---
+
+#### Step 11: Agree on ONE recommended device
+In **Sheet 3: Recommendation**, write:
+
+1. **Recommended device** (model + price)
+2. **Why it fits the scenario** (3–5 bullet points)
+3. **Risks / limitations** (2 bullet points)
+4. **Mitigation** (how to reduce the risks)
+5. **Procurement checklist**, e.g.:
+   - Warranty
+   - Accessories
+   - Security setup
+   - User training
+
+---
+
+#### Step 12: Executive-style justification (100–150 words)
+Write a short paragraph covering:
+
+> Scenario → Key requirements → Evidence → Recommendation
+
+This should read like a **business decision summary**, not a technical report.
+
+---
+
+## 5. Expected Outputs (What You Submit)
+
+Submit via the VLE:
+
+- `Week2_Device_Spec_Analysis_<YourName>.xlsx`  
+  (all **three sheets completed**)
+- Screenshots or links to **at least two vendor/spec sources** used
+
+---
+
+## 6. Post-Class Work
+
+After class:
+
+- Improve your worksheet using feedback
+- Adjust scoring weights if needed
+- Optionally add **one more device** to strengthen your comparison
+
+Write a **150–200 word reflection**:
+- What mattered most in your decision and why?
+- What trade-offs did you accept?
+
+---
+
+## 7. Optional Extension (If Time Allows)
+
+- Add a **Total Cost of Ownership (TCO)** row:
+  - Device cost
+  - Accessories
+  - Warranty
+  - Software licences
+- Consider cybersecurity policy:
+  - Encryption
+  - Secure login
+  - Updates
+  - Remote wipe (for phones)
