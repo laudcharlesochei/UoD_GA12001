@@ -193,11 +193,7 @@ Zapier works like this:
 2. Search for **Gmail**
 3. Choose trigger: **New Email Matching Search**
 4. Connect your Gmail account (Allow permissions)
-5. In **Search String**, type:
-subject:"Newsletter Signup"
-
-yaml
-Copy code
+5. In **Search String**, type: subject:"Newsletter Signup"
 6. Click **Test trigger**  
 You should see your test email.
 
@@ -222,11 +218,8 @@ You should see your test email.
 ---
 
 #### Step 12: Publish and test your automation
-1. Rename your Zap:
-My First Automation - <YourName>
+1. Rename your Zap: My First Automation - <YourName>
 
-yaml
-Copy code
 2. Click **Publish**
 
 Now send another test email to yourself with subject:
