@@ -89,9 +89,6 @@ Open LibreOffice Calc (or Excel/Sheets) and save the file as:
 
 Week2_Device_Spec_Analysis_<YourName>.xlsx
 
-yaml
-Copy code
-
 #### Step 2: Create worksheet tabs
 Create **three sheets** named:
 
@@ -209,9 +206,6 @@ Below the table, create this scoring section:
 
 **Weighted score formula:**
 Weighted = Weight × Score
-
-yaml
-Copy code
 
 Calculate:
 - **Total Device 1 score**
