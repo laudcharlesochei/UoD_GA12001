@@ -21,7 +21,7 @@
 ## Screenshots of Completed Sheets
 
 ### Sheet 1: Business Case  
-Screenshot: [sample screenshot]
+Screenshot: [screenshot-business-case.png]
 
 #### Scenario: Field Sales / Mobile Worker
 
@@ -53,8 +53,8 @@ Screenshot: [sample screenshot]
 ---
 
 ### Sheet 2: Spec Comparison  
-Screenshot: https://example.com/screenshot-spec-comparison.png  
-*(Sample table extract below)*
+Screenshot: [screenshot-spec-comparison.png]
+
 
 **Spec Comparison Table (Extract)**
 
@@ -90,7 +90,7 @@ Screenshot: https://example.com/screenshot-spec-comparison.png
 ---
 
 ### Sheet 3: Recommendation  
-Screenshot: https://example.com/screenshot-recommendation.png  
+Screenshot: [screenshot-recommendation.png]  
 
 #### Recommended Device
 **Dell Latitude 5430** *(Price: £1,099)*
