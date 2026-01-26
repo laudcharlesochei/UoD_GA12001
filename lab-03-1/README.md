@@ -100,6 +100,13 @@ Timestamp	Customer Email	Subject	Body Excerpt	Category	Status
 2024-04-10 14:32:45	customer2@test.com	Billing question	"I have a query about..."	Billing	New
 2024-04-10 14:35:10	customer3@test.com	Support needed	"The product isn't working..."	Support	New
 
+
+| Timestamp           | Customer Email                                  | Subject          | Body Excerpt                   | Category | Status |
+| ------------------- | ----------------------------------------------- | ---------------- | ------------------------------ | -------- | ------ |
+| 2024-04-10 14:30:22 | [customer1@test.com](mailto:customer1@test.com) | Product enquiry  | "Hello, I'm interested in..."  | Sales    | New    |
+| 2024-04-10 14:32:45 | [customer2@test.com](mailto:customer2@test.com) | Billing question | "I have a query about..."      | Billing  | New    |
+| 2024-04-10 14:35:10 | [customer3@test.com](mailto:customer3@test.com) | Support needed   | "The product isn't working..." | Support  | New    |
+
 ---
 
 ### AI-Enhanced Component
