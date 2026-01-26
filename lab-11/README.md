@@ -161,9 +161,6 @@ Send an email to yourself:
 Name: Alex Johnson
 Email: alex@example.com
 
-yaml
-Copy code
-
 Send it, wait a few seconds, and confirm it appears in your inbox.
 
 ---
