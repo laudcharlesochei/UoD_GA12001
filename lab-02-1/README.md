@@ -21,8 +21,7 @@
 ## Screenshots of Completed Sheets
 
 ### Sheet 1: Business Case  
-Screenshot: https://example.com/screenshot-business-case.png  
-*(Sample content below)*
+Screenshot: [sample screenshot]
 
 #### Scenario: Field Sales / Mobile Worker
 
