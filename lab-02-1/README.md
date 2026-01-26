@@ -1,4 +1,7 @@
-# Sample Submission
+# Sample Submission for Lab 02  
+## Hardware & Software Fundamentals — Device Spec Analysis for a Business Case
+
+---
 
 **Student Name:** Alex Chen  
 **Lab:** 02 — Device Spec Analysis for a Business Case  
