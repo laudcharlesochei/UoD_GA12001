@@ -218,7 +218,7 @@ You should see your test email.
 ---
 
 #### Step 12: Publish and test your automation
-1. Rename your Zap: My First Automation - <YourName>
+1. Rename your Zap: My First Automation - [your_name ]
 
 2. Click **Publish**
 
